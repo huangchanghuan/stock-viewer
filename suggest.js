@@ -192,7 +192,7 @@
 					var arr = [];
 					el.find("span").each(function(i,item){
 						arr.push($(item).html());
-					})
+					});
 					arr.push(el.attr('data-type'));
 					val = el.attr('data-pre') + "  " + arr.join("  ");
 					
@@ -342,7 +342,11 @@
 				if(!regFilter.test(data[i][0])){
 					continue;
 				}
-				htmlStr.push(utils.tmpl( tpl , data[i] ));
+				//todo
+				var changeData = data[i];
+				changeData[2] = pinyin.getFullChars(changeData[2]);
+				// changeData[1] = changeData[1].substr(3);
+				htmlStr.push(utils.tmpl( tpl , changeData));
 			}
 			$list.html(htmlStr.join(''));
 			t.show();
@@ -431,14 +435,6 @@
 					})
 					callback.call( t , kw , data, t.config.template.item );
 				});
-				// loadJs(url,function(){
-				// 	// console.log(v_hint);
-				// 	var data = v_hint.split("^");
-				// 	data.forEach(function(item,index){
-				// 		data[index] = item.split("~");
-				// 	})
-				// 	callback.call( t , kw , data, t.config.template.item );	
-				// },function(){});	
 			}else{
 				/* jsonp的回调处理 */
 				win[ cb ] = function( res ){

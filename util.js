@@ -13,7 +13,7 @@
 
 			var url = url;
 			XHR.open("get", url, true);
-			XHR.setRequestHeader('Content-Type','application/x-www-form-urlencoded; charset=UTF-8');
+			XHR.setRequestHeader('Content-Type','application/json; charset=UTF-8');
 			XHR.onreadystatechange = function(){
 				if(XHR.readyState == 4 && XHR.status == 200){
 					// var ret = eval("(" + XHR.responseText + ")");
@@ -24,6 +24,21 @@
 			}
 			XHR.send(null);
 
+		},
+		ajax_update_json: function(url,body,method,callback){
+			$.ajax({
+				url: url,
+				data: body,
+				type: method,
+				contentType:"application/json",
+				dataType: "json",
+				success: function(data) {
+					// data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
+					if (callback!=null){
+						callback(data)
+					}
+				}
+			});
 		},
 		// 简易模板
 		htmlEscape: function(s) {

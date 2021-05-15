@@ -1,4 +1,38 @@
+var mode1=true;
+var mode2=true;
 
+//将data数据以桌面通知的方式显示给用户
+function _showDataOnPage(data){
+
+	//显示一个桌面通知
+	if(window.webkitNotifications){
+		var notification = window.webkitNotifications.createNotification(
+			'images/icon.png',  // icon url - can be relative
+			'通知的title!',  // notification title
+			data  // notification body text
+		);
+		notification.show();
+		// 设置3秒后，将桌面通知dismiss
+		setTimeout(function(){notification.cancel();}, 3000);
+
+	}else if(chrome.notifications){
+		var opt = {
+			type: 'basic',
+			title: '通知的title!',
+			message: data,
+			iconUrl: 'images/icon.png',
+		}
+		chrome.notifications.create('', opt, function(id){
+			// setTimeout(function(){
+			// 	chrome.notifications.clear(id, function(){});
+			// }, 3000);
+		});
+
+	}else{
+		console.log('亲，你的浏览器不支持啊！');
+	}
+
+}
 // 操作本地数据
 ;(function($,undefined){
 	var data = {
@@ -11,6 +45,7 @@
 		var data2Local = [];
 		for(var i = 0,len = data.order.length; i < len; i++){
 			var item = data.map[data.order[i]];
+			//todo item.remove("name");
 			data2Local.push(item);
 		}
 		var obj = {
@@ -26,6 +61,14 @@
 	}
 	var editItem = function(obj){
 		data.map[obj.key]['remark'] = obj.remark;
+		sync2Local();
+	}
+	var editItemUpper = function(obj){
+		data.map[obj.key]['upper'] = obj.upper;
+		sync2Local();
+	}
+	var editItemLower = function(obj){
+		data.map[obj.key]['lower'] = obj.lower;
 		sync2Local();
 	}
 	var removeItem = function(key){
@@ -90,6 +133,18 @@
 			}
 			cb && cb();			
 		},
+		editUpper : function(obj,cb){
+			if(obj.key && obj.upper != undefined){
+				editItemUpper(obj);
+			}
+			cb && cb();
+		},
+		editLower : function(obj,cb){
+			if(obj.key && obj.lower != undefined){
+				editItemLower(obj);
+			}
+			cb && cb();
+		},
 		getAll : function(cb){
 			var res = [];
 			data.order.forEach(function(item,index){
@@ -100,6 +155,16 @@
 				cb(res);
 				return;
 			}
+			return res;
+		},
+		getOneByKey : function(key){
+			var res ;
+			data.order.forEach(function(item,index){
+				var obj = data.map[item];
+				if (obj['key']===key){
+					res = obj;
+				}
+			});
 			return res;
 		},
 		getKeys : function(){
@@ -130,7 +195,9 @@
 function getLinkUrl(obj){
 	var linkUrl = '', imgUrl = '';
         linkUrl = 'http://gu.qq.com/' + obj.key;
-	imgUrl = 'http://imgnode.gtimg.cn/hq_img?code='+obj.key+'&type=minute&size=3&proj=news';
+	// imgUrl = 'http://imgnode.gtimg.cn/hq_img?code='+obj.key+'&type=minute&size=3&proj=news';
+	// imgUrl = 'http://image.sinajs.cn/newchart/min/n/sh600519.gif'+obj.key+'&type=minute&size=3&proj=news';
+	imgUrl = 'http://image.sinajs.cn/newchart/'+obj.stockShowType+'/n/'+obj.key+'.gif?';
 	return {
 		linkUrl : linkUrl,
 		imgUrl : imgUrl
@@ -139,13 +206,16 @@ function getLinkUrl(obj){
 
 ;(function($,undefined){
 	var sTplList = ['<li id="{key}" data-type="{type}"">',
-						'<span class="top" title="置顶">置顶</span>',
-						'<span class="name"><a target="_blank" href="{url}">{name}({code})</a></span>',
-						'<span class="price">--</span>',
-						'<span class="grow">--</span>',
-						'<span class="hands">--</span>',
-						'<span class="remark {remarkFlag}" title="{remark}">加备注</span>',
+						'<span class="top" title="置顶" style="display: none">top</span>',
+						'<span class="code"><a target="_blank" href="#">{code}</a></span>',
+						'<span class="name"><a target="_blank" href="{url}">{name}()</a></span>',
+						'<span class="price"><a target="_blank" href="#">--</a></span>',
+						'<span class="grow"><a target="_blank" href="#">--</a></span>',
+						'<span  style="width: 64px" class="{key} upper">--</span>',
+						'<span  style="width: 64px" class="{key} lower">--</span>',
 						'<a href="#" class="delete" data-key="{key}">X</a>',
+						// '<span class="hands">--</span>',
+						// '<span class="remark {remarkFlag}" title="{remark}">R</span>',
 					'</li>'].join("");	
 	var Stock = {
 		name : LocalData.name,
@@ -314,10 +384,47 @@ function getLinkUrl(obj){
 						if(item == undefined || item.find(".price") == undefined){
 							console.log(item)
 						}
-						item.find(".name a").html(obj.name + '('+ obj.code +')');
-						item.find(".price").html(obj.price).removeClass('increase','reduce').addClass(obj.className);
-						item.find(".grow").html(obj.growRate).removeClass('increase','reduce').addClass(obj.className);
+						// item.find(".name a").html(obj.name + '('+ obj.code +')');
+						//隐藏上半部分
+						if (window.localStorage.getItem("myJavaShow")==1){
+							$('#myjava').hide();
+						}else {
+							$('#myjava').show();
+						}
+						//todo 隐藏处理
+						var mode_choice=window.localStorage.getItem("mode_choice");
+						if (mode_choice==1){
+							//显示所有中文
+							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".name a").html(obj.name);
+						}else if(mode_choice==2){
+							//显示2个中文
+							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".name a").html(obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
+						}else if(mode_choice==3){
+							//显示2个中文
+							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".name a").html(obj.name.substring(0,1)+"&#5%#0"+pinyin.getCamelChars(obj.name.substring(1,2)));
+						}  else{
+							//拼音模式
+							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".name a").html(pinyin.getFullChars(obj.name));
+						}
+
+
+						item.find(".price a").html(obj.price).removeClass('increase','reduce').addClass(obj.className);
+						item.find(".grow a").html(obj.growRate).removeClass('increase','reduce').addClass(obj.className);
 						item.find(".hands").html(obj.hands);
+
+						//超买显示,根据key获取缓存upper
+						var tObj=LocalData.getOneByKey(obj.key.substring(2));
+						//第一个小时超卖, 在10点半之前
+						var curTime = new Date();
+						var base = curTime.getFullYear() + '/' + (curTime.getMonth() + 1) + '/' + curTime.getDate() + ' ';
+						var secondStartAM = base + '10:30:00'; // 第二个小时开始
+						//超买超卖提示
+						upperAndLowerUtil.upper(item, obj,tObj, curTime,secondStartAM);
+						upperAndLowerUtil.lower(item, obj,tObj, curTime,secondStartAM);
 					});
 
 					cb && cb();
@@ -377,29 +484,106 @@ function getLinkUrl(obj){
 					}
 				});
 			});
-			/* 走势图 */
+			/* 分时走势图 */
 			var timerTrend = null;
-			$(".zxg-list").delegate("li .name","mouseenter",function(e){
+			$(".zxg-list").delegate("li .code","mouseenter",function(e){
 				$el = $(this);
 				var $parent = $el.parents("li");
 				
 				var key = $parent.attr("id");
 				var code = key.slice(2);
 				var type = $parent.attr("data-type");
-				var imgUrl = getLinkUrl({code:code, key:key, type:type}).imgUrl;
+				var imgUrl = getLinkUrl({code:code, key:key, type:type,stockShowType:"min"}).imgUrl;
 				if(imgUrl == ""){
 					return;
 				}
 				timerTrend = setTimeout(function(){
 					var style = '';
 					if($parent.height()+$parent.position().top+130>$(".zxg-bd").height()){
-						style = ' style="top:-120px"';
+						style = ' style="top:-120px;left:0px"';
+					}else {
+						style = ' style="left:0px"';
 					}
-					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+'?'+Math.random()+'" alt="" /></div>';
+					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+new Date().getTime()+'" alt="" style="width: 380px"/></div>';
 					$el.append(str);					
 				},500);
-			}).delegate("li .name","mouseleave",function(e){
+			}).delegate("li .code","mouseleave",function(e){
 				clearTimeout(timerTrend);
+				$(this).find(".trendImg").remove();
+			});
+			/* 日势图 */
+			var timerDayTrend = null;
+			$(".zxg-list").delegate("li .name","mouseenter",function(e){
+				$el = $(this);
+				var $parent = $el.parents("li");
+
+				var key = $parent.attr("id");
+				var code = key.slice(2);
+				var type = $parent.attr("data-type");
+				var imgUrl = getLinkUrl({code:code, key:key, type:type,stockShowType:"daily"}).imgUrl;
+				if(imgUrl == ""){
+					return;
+				}
+				timerDayTrend = setTimeout(function(){
+					var style = '';
+					if($parent.height()+$parent.position().top+130>$(".zxg-bd").height()){
+						style = ' style="top:-120px"';
+					}
+					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+new Date().getTime()+'" alt="" style="width: 400px"/></div>';
+					$el.append(str);
+				},500);
+			}).delegate("li .name","mouseleave",function(e){
+				clearTimeout(timerDayTrend);
+				$(this).find(".trendImg").remove();
+			});
+			/* 周势图 */
+			var timerWeeklyTrend = null;
+			$(".zxg-list").delegate("li .price","mouseenter",function(e){
+				$el = $(this);
+				var $parent = $el.parents("li");
+
+				var key = $parent.attr("id");
+				var code = key.slice(2);
+				var type = $parent.attr("data-type");
+				var imgUrl = getLinkUrl({code:code, key:key, type:type,stockShowType:"weekly"}).imgUrl;
+				if(imgUrl == ""){
+					return;
+				}
+				timerWeeklyTrend = setTimeout(function(){
+					var style = '';
+					if($parent.height()+$parent.position().top+130>$(".zxg-bd").height()){
+						style = ' style="top:-120px"';
+					}
+					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+new Date().getTime()+'" alt="" style="width: 400px"/></div>';
+					$el.append(str);
+				},500);
+			}).delegate("li .price","mouseleave",function(e){
+				clearTimeout(timerWeeklyTrend);
+				$(this).find(".trendImg").remove();
+			});
+			/* 月势图 */
+			var timerMonthlyTrend = null;
+			$(".zxg-list").delegate("li .grow","mouseenter",function(e){
+				$el = $(this);
+				var $parent = $el.parents("li");
+
+				var key = $parent.attr("id");
+				var code = key.slice(2);
+				var type = $parent.attr("data-type");
+				var imgUrl = getLinkUrl({code:code, key:key, type:type,stockShowType:"monthly"}).imgUrl;
+				if(imgUrl == ""){
+					return;
+				}
+				timerMonthlyTrend = setTimeout(function(){
+					var style = '';
+					if($parent.height()+$parent.position().top+130>$(".zxg-bd").height()){
+						style = ' style="top:-120px"';
+					}
+					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+new Date().getTime()+'" alt="" style="width: 400px"/></div>';
+					$el.append(str);
+				},500);
+			}).delegate("li .grow","mouseleave",function(e){
+				clearTimeout(timerMonthlyTrend);
 				$(this).find(".trendImg").remove();
 			});
 			$(".zxg-list").delegate("li","mouseenter",function(e){
@@ -445,15 +629,15 @@ function getLinkUrl(obj){
 	// 一个简单的检测是否开盘时间，否则停止更新数据
 	(function(){
 		var curTime = new Date();
-
 		var base = curTime.getFullYear() + '/' + (curTime.getMonth() + 1) + '/' + curTime.getDate() + ' ';
-		var startAM = base + '09:15:00'; // 早盘开盘时间
+		var startAM = base + '09:00:00'; // 早盘开盘时间
 		var endAM = base + '11:30:00';	// 早盘开盘时间
 		var startPM = base + '13:00:00';	// 午盘开盘时间
 		var endPM = base + '15:00:00';	// 午盘闭盘时间
-
+		var SecondstartAM = base + '10:30:00'; // 第二个小时开始
 		if(+curTime < +new Date(startAM) || ( +new Date(endAM) < +curTime && +curTime < +new Date(startPM) ) || +curTime > +new Date(endPM) ){
-			clearInterval(timer);
+			//todo 检查开启时间
+			// clearInterval(timer);
 		}
 	})();
 
