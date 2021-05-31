@@ -412,8 +412,8 @@ function getLinkUrl(obj){
 						}
 
 
-						item.find(".price a").html(obj.price).removeClass('increase','reduce').addClass(obj.className);
-						item.find(".grow a").html(obj.growRate).removeClass('increase','reduce').addClass(obj.className);
+						item.find(".price a").html(obj.price).removeClass('increase','reduce').addClass('increase');
+						item.find(".grow a").html(obj.growRate).removeClass('increase','reduce').addClass('increase');
 						item.find(".hands").html(obj.hands);
 
 						//超买显示,根据key获取缓存upper
