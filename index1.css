@@ -125,6 +125,13 @@ body{
     z-index:2;
     background:white;
     border:solid 2px #e8e8e8;
+    /*<!-- 图片黑白处理 -->*/
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
 }
 .zxg-stock span{
     text-align:center;

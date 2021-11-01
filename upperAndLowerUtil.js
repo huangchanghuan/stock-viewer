@@ -18,7 +18,7 @@
                     if (item.find(".delete").html()!=="up"){
                         item.find(".delete").html("up");
                         console.log("超买只通知一次");
-                        _showDataOnPage('日up:'+pinyin.getFullChars(obj.name));
+                        _showDataOnPage('日up:'+obj.name);
                     }
                 }else {
                     if(+curTime < +new Date(secondStartAM) &&parseFloat(hourUpper)<parseFloat(obj.growRate)){
@@ -26,7 +26,7 @@
                         if (item.find(".delete").html()!=="up"){
                             item.find(".delete").html("up");
                             console.log("超买只通知一次");
-                            _showDataOnPage('时up:'+pinyin.getFullChars(obj.name));
+                            _showDataOnPage('时up:'+obj.name);
                         }
                     }else {
                         // console.log("未超买")
@@ -64,7 +64,7 @@
                         // item.find(".upper").addClass("status_now_upper");
                         item.find(".delete").html("lo");
                         console.log("超卖只通知一次");
-                        _showDataOnPage('日lo:'+pinyin.getFullChars(obj.name));
+                        _showDataOnPage('日lo:'+obj.name);
                     }
                 }else {
                     if(+curTime < +new Date(secondStartAM) &&-parseFloat(hourLower)>parseFloat(obj.growRate)){
@@ -73,7 +73,7 @@
                             // item.find(".upper").addClass("status_now_upper");
                             item.find(".delete").html("lo");
                             console.log("超卖只通知一次");
-                            _showDataOnPage('时lo:'+pinyin.getFullChars(obj.name));
+                            _showDataOnPage('时lo:'+obj.name);
                         }
                     }else {
                         // console.log("未超卖")
