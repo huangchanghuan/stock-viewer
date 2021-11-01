@@ -211,8 +211,8 @@ function getLinkUrl(obj){
 						'<span class="name"><a target="_blank" href="{url}">{name}()</a></span>',
 						'<span class="price"><a target="_blank" href="#">--</a></span>',
 						'<span class="grow"><a target="_blank" href="#">--</a></span>',
-						'<span  style="width: 64px" class="{key} upper">--</span>',
-						'<span  style="width: 64px" class="{key} lower">--</span>',
+						'<span  style="width: 80px" class="{key} upper">--</span>',
+						'<span  style="width: 80px" class="{key} lower">--</span>',
 						'<a href="#" class="delete" data-key="{key}">X</a>',
 						// '<span class="hands">--</span>',
 						// '<span class="remark {remarkFlag}" title="{remark}">R</span>',
@@ -395,19 +395,19 @@ function getLinkUrl(obj){
 						var mode_choice=window.localStorage.getItem("mode_choice");
 						if (mode_choice==1){
 							//显示所有中文
-							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(obj.name);
 						}else if(mode_choice==2){
 							//显示2个中文
-							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
 						}else if(mode_choice==3){
 							//显示2个中文
-							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(obj.name.substring(0,1)+"&#5%#0"+pinyin.getCamelChars(obj.name.substring(1,2)));
 						}  else{
 							//拼音模式
-							item.find(".code a").html(obj.key.substring(7) );
+							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(pinyin.getFullChars(obj.name));
 						}
 
