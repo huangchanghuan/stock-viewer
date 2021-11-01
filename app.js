@@ -199,16 +199,16 @@
 			});
 			//上传数据到jsonbox
 			$(".json_up").click(function (e) {
-				var url = "https://jsonbox.io/sunstar_6d9e326c183fde7b/607839f564620f0015f01a1e";
+				var url = "http://106.75.173.212/stockcache";
 				var textdata = localStorage.getItem('stock_list');
 				var tmp = JSON.parse(textdata);
-				utils.ajax_update_json(url, textdata, "PUT",function (data) {
+				utils.ajax_update_json(url, textdata, "POST",function (data) {
 					alert("上传完成"+JSON.stringify(data));
 				});
 			});
 			//下载数据到jsonbox
 			$(".json_down").click(function (e) {
-				var url = "https://jsonbox.io/sunstar_6d9e326c183fde7b/607839f564620f0015f01a1e";
+				var url = "http://106.75.173.212/stockcache";
 				utils.ajax_update_json(url, null, "GET",function (data) {
 					try {
 						var tmp = data;
