@@ -8,7 +8,8 @@
             //不为空时候, 小时超买或者日超买 则弹窗提示,否则置换为未超买标识
             if (tObj.upper!=null){
                 //分解出小时,日
-                var upperStr = tObj.upper.substr(1);
+                // var upperStr = tObj.upper.substr(1);
+                var upperStr = tObj.upper;
                 var upperArray=upperStr.split("#");
                 var hourUpper = upperArray[0];
                 var dayUpper = upperArray[1];
@@ -51,7 +52,8 @@
             //超卖则通知，改变数字的样式
             if (tObj.lower!=null){
                 //分解出小时,日
-                var lowerStr = tObj.lower.substr(1);
+                // var lowerStr = tObj.lower.substr(1);
+                var lowerStr = tObj.lower;
                 var lowerArray=lowerStr.split("#");
                 var hourLower = lowerArray[0];
                 var dayLower = lowerArray[1];
