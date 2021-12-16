@@ -96,6 +96,15 @@
 				// e.currentTarget.html("33");
 				$('#setUpper').hide();
 				$('.mask').hide();
+
+				//上传到云
+				var url = "http://106.75.173.212/stockcache";
+				var textdata = localStorage.getItem('stock_list');
+				var tmp = JSON.parse(textdata);
+				utils.ajax_update_json(url, textdata, "POST",function (data) {
+					// alert("自动上传完成"+JSON.stringify(data));
+					_showDataOnPage('上传到云');
+				});
 			});
 
 			//超卖
@@ -137,6 +146,15 @@
 				// e.currentTarget.html("33");
 				$('#setLower').hide();
 				$('.mask').hide();
+				//上传到云
+				var url = "http://106.75.173.212/stockcache";
+				var textdata = localStorage.getItem('stock_list');
+				var tmp = JSON.parse(textdata);
+				utils.ajax_update_json(url, textdata, "POST",function (data) {
+					// alert("自动上传完成"+JSON.stringify(data));
+					_showDataOnPage('上传到云');
+				});
+
 			});
 
 			$(".mode1").on('click', function(e){
