@@ -55,18 +55,18 @@
                 // var lowerStr = tObj.lower.substr(1);
                 var lowerStr = tObj.lower;
                 var lowerArray=lowerStr.split("#");
-                var hourLower = lowerArray[0];
-                var dayLower = lowerArray[1];
+                var hourLower = lowerArray[1];
+                var dayLower = lowerArray[2];
                 //止损判断
-                if (lowerArray.length>2){
-                    var leafNow = lowerArray[2];
+                // if (lowerArray.length>2){
+                    var leafNow = lowerArray[0];
                     if (parseFloat(leafNow)>parseFloat(obj.price)){
                         //未止损标识，则发送通知，并改变数字样式
                         console.log(item.find(".delete").html())
                         if (item.find(".delete").html()!=="lv"){
                             item.find(".delete").html("lv");
                             console.log("触发离场报警");
-                            _showDataOnPage('请检查电脑设备接口:'+pinyin.getFullChars(obj.name));
+                            _showDataOnPage('range:'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
                         }
                     }else {
                         //不需要止损，去掉止损标识
@@ -74,7 +74,7 @@
                             item.find(".delete").html("X");
                         }
                     }
-                }
+                // }
 
                 //判断日超卖
                 //先判断日

@@ -8,7 +8,7 @@ function _showDataOnPage(data){
 	if(window.webkitNotifications){
 		var notification = window.webkitNotifications.createNotification(
 			'images/icon.png',  // icon url - can be relative
-			'通知的title!',  // notification title
+			'广告',  // notification title
 			data  // notification body text
 		);
 		notification.show();
@@ -18,7 +18,7 @@ function _showDataOnPage(data){
 	}else if(chrome.notifications){
 		var opt = {
 			type: 'basic',
-			title: '通知的title!',
+			title: '广告',
 			message: data,
 			iconUrl: 'images/icon.png',
 		}
