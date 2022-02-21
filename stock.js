@@ -500,9 +500,9 @@ function getLinkUrl(obj){
 				timerTrend = setTimeout(function(){
 					var style = '';
 					if($parent.height()+$parent.position().top+130>$(".zxg-bd").height()){
-						style = ' style="top:-120px;left:0px"';
+						style = ' style="top:-120px;left:0px;height:130px;overflow: hidden"';
 					}else {
-						style = ' style="left:0px"';
+						style = ' style="left:0px;height:130px;overflow: hidden"';
 					}
 					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+new Date().getTime()+'" alt="" style="width: 380px"/></div>';
 					$el.append(str);					

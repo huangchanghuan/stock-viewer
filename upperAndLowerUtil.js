@@ -11,8 +11,26 @@
                 // var upperStr = tObj.upper.substr(1);
                 var upperStr = tObj.upper;
                 var upperArray=upperStr.split("#");
-                var hourUpper = upperArray[0];
-                var dayUpper = upperArray[1];
+                var hourUpper = upperArray[1];
+                var dayUpper = upperArray[2];
+                //追买判断
+                var leafNow = upperArray[0];
+                if (parseFloat(leafNow)<parseFloat(obj.price)){
+                    //未止损标识，则发送通知，并改变数字样式
+                    console.log(item.find(".delete").html())
+                    if (item.find(".delete").html()!=="bv"){
+                        item.find(".delete").html("bv");
+                        console.log("触发买入报警");
+                        _showDataOnPage('入场 :'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
+                    }
+                }else {
+                    //不需要止损，去掉止损标识
+                    if (item.find(".delete").html()==="bv"){
+                        item.find(".delete").html("X");
+                    }
+                }
+
+
                 //先判断日
                 if(parseFloat(dayUpper)<parseFloat(obj.growRate)){
                     //未超买标识，则发送通知，并改变数字样式
@@ -66,7 +84,7 @@
                         if (item.find(".delete").html()!=="lv"){
                             item.find(".delete").html("lv");
                             console.log("触发离场报警");
-                            _showDataOnPage('range:'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
+                            _showDataOnPage('离场:'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
                         }
                     }else {
                         //不需要止损，去掉止损标识
