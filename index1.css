@@ -118,8 +118,8 @@ body{
 }
 .zxg-stock li .trendImg{
     position:absolute;
-    /*height:auto;*/
-    height:135px;overflow: hidden;
+    height:auto;
+    /*height:135px;overflow: hidden;*/
     width:auto;
     top:26px;
     left:0px;
