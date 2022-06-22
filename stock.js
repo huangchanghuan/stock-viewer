@@ -191,7 +191,7 @@ function _showDataOnPage(data){
 	window.LocalData = LocalData;
 })(jQuery);
 
-// 根据不同类型的代码，生成不同的url
+// 根据不同类型的代码，生成不同的url style="display: none"
 function getLinkUrl(obj){
 	var linkUrl = '', imgUrl = '';
         linkUrl = 'http://gu.qq.com/' + obj.key;
@@ -206,7 +206,8 @@ function getLinkUrl(obj){
 
 ;(function($,undefined){
 	var sTplList = ['<li id="{key}" data-type="{type}"">',
-						'<span class="top" title="置顶" style="display: none">top</span>',
+						'<span class="top" title="置顶" >T</span>',
+						'<span class="down" title="底部" >D</span>',
 						'<span class="code"><a target="_blank" href="#">{code}</a></span>',
 						'<span class="name"><a target="_blank" href="{url}">{name}()</a></span>',
 						'<span class="price"><a target="_blank" href="#">--</a></span>',
@@ -369,6 +370,7 @@ function getLinkUrl(obj){
 				var arr = keys.slice(i*NUM, (i+1)*NUM);
 
 				this._loadStockData(arr.join(","),function(res){
+					//li每个遍历改变数据
 					var $els = $("#zxg .zxg-list li");
 					
 					$els.each(function(index,item){
@@ -409,6 +411,13 @@ function getLinkUrl(obj){
 							//拼音模式
 							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(pinyin.getFullChars(obj.name));
+						}
+						//对etf进行高亮处理
+						if (item.find(".name a").html().indexOf("ETF")!=-1){
+							console.log("");
+							console.log(item.find(".name a").html());
+							item.addClass('stocketf')
+
 						}
 
 
@@ -529,7 +538,7 @@ function getLinkUrl(obj){
 					if($parent.height()+$parent.position().top+130>$(".zxg-bd").height()){
 						style = ' style="top:-120px"';
 					}
-					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+new Date().getTime()+'" alt="" style="width: 400px"/></div>';
+					var str = '<div class="trendImg"' + style + '><img src="'+imgUrl+new Date().getTime()+'" alt="" style="width: 470px"/></div>';
 					$el.append(str);
 				},500);
 			}).delegate("li .name","mouseleave",function(e){
@@ -595,6 +604,9 @@ function getLinkUrl(obj){
 				self.sortStock();
 			}).delegate('li', 'animationend', function(e){
 				$(this).removeClass('fade');
+			}).delegate(".down","click",function(e){
+				$(this).parents("li").appendTo(e.delegateTarget);
+				self.sortStock();
 			});
 
 			/* 拖拽排序 */

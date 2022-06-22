@@ -90,6 +90,11 @@ body{
 .zxg-stock .reduce{
     color: rgba(38, 42, 42, 0.38);
 }
+
+.zxg-stock .stocketf{
+    background-color: #e8e8e8;
+}
+
 .zxg-stock .upper{
     color: rgba(38, 42, 42, 0.38);
 }
@@ -138,7 +143,13 @@ body{
     text-align:center;
 }
 .zxg-stock .top{
-    width:30px;
+    width:10px;
+    cursor:pointer;
+    opacity:0;
+}
+
+.zxg-stock .down{
+    width:10px;
     cursor:pointer;
     opacity:0;
 }
@@ -218,11 +229,17 @@ body{
     border-top:solid 1px #e4e4e4;
 }
 .zxg-list li.hover{
-    background-color:#e2effa;
+    /*background-color: #f6f6f8;*/
 }
 .zxg-list li:hover .top{
     opacity:1;
 }
+
+.zxg-list li:hover .down{
+    opacity:1;
+}
+
+
 .zxg-stock .tipStock{
     display:none;
     position:absolute;

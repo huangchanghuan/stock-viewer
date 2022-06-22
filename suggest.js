@@ -342,11 +342,12 @@
 				if(!regFilter.test(data[i][0])){
 					continue;
 				}
-				//todo
-				var changeData = data[i];
-				changeData[2] = pinyin.getFullChars(changeData[2]);
-				// changeData[1] = changeData[1].substr(3);
-				htmlStr.push(utils.tmpl( tpl , changeData));
+				//拼音
+				// var changeData = data[i];
+				// changeData[2] = pinyin.getFullChars(changeData[2]);
+				// htmlStr.push(utils.tmpl( tpl , changeData));
+				//文字
+				htmlStr.push(utils.tmpl( tpl , data[i] ));
 			}
 			$list.html(htmlStr.join(''));
 			t.show();

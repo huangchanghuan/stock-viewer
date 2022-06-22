@@ -76,6 +76,47 @@
 				// e.currentTarget.html("33");
 			});
 
+			//按照涨幅排序
+			var originarr = [];
+			var changesort = 0;
+			$("#grow").click(function (e) {
+				console.log("点击排序");
+				if (changesort==0){
+					var arr = [];
+					$('.zxg-list li').each(function(index,item){
+						// console.log(item);
+						arr[index] = item;
+						originarr[index]=item
+					})
+					console.log(arr);
+					//调用 sort
+					arr.sort(function(li1,li2){
+						//要把 li 中的数字取出，进行比较
+						var item1 = $(li1);
+						var item2 = $(li2);
+						var grow1 = item1.find(".grow a").html();
+						var grow2 = item2.find(".grow a").html();
+						var n1 = parseFloat(grow1.substr(0, grow1.length - 1) );
+						var n2 = parseFloat(grow2.substr(0, grow2.length - 1));
+						return n1-n2;
+					});
+					console.log(arr);
+					//将已经排好序的数组重新添加到 ul
+					$('.zxg-list li').remove();
+					for(var i=0;i<arr.length;i++){
+						$('#zxg-list').prepend(arr[i])
+					}
+					changesort = 1;
+				}else {
+					$('.zxg-list li').remove();
+					for(var i=0;i<originarr.length;i++){
+						$('#zxg-list').append(originarr[i])
+					}
+					changesort = 0;
+				}
+			});
+
+
 			$("#upper_text_confirm").click(function (e) {
 				var textdata = $("#upper_text").val();
 				console.log(textdata);
