@@ -94,6 +94,10 @@ body{
 .zxg-stock .stocketf{
     background-color: #e8e8e8;
 }
+.stock-class li span{
+    color: rgba(38, 42, 42, 0.38);
+
+}
 
 .zxg-stock .upper{
     color: rgba(38, 42, 42, 0.38);
@@ -143,12 +147,14 @@ body{
     text-align:center;
 }
 .zxg-stock .top{
+    color: rgba(38, 42, 42, 0.38);
     width:10px;
     cursor:pointer;
     opacity:0;
 }
 
 .zxg-stock .down{
+    color: rgba(38, 42, 42, 0.38);
     width:10px;
     cursor:pointer;
     opacity:0;

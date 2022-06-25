@@ -76,19 +76,70 @@
 				// e.currentTarget.html("33");
 			});
 
-			//按照涨幅排序
+
 			var originarr = [];
+			var arr = [];
 			var changesort = 0;
+			//持有筛选出来
+			var warehousearr = [];
+			var warehouseoriginarr = [];
+			var warehousechangesort = 0;
+			$("#warehouse").click(function (e) {
+				console.log("点击持仓");
+				//滚动到头部
+				var $listWrap = $('.zxg-bd');
+				$listWrap.scrollTop(1);
+				if (warehousechangesort==0) {
+					// var arr = [];
+					$('.zxg-list li').each(function (index, item) {
+						// 选出有最低价格警告的
+						var item1 = $(item);
+						// console.log(item1.attr("id"));
+						var tObj = LocalData.getOneByKey(item1.attr("id"));
+
+						// console.log("tObj:" + tObj);
+						var lowernum = tObj.lower;
+						// console.log("数值:" + lowernum);
+						if (isNaN(Number(lowernum, 10))) {
+							// console.log("不是数字");
+						} else {
+							// console.log("是数字");
+							warehousearr[index] = item;
+						}
+						warehouseoriginarr[index] = item
+					})
+					//将已经排好序的数组重新添加到 ul
+					$('.zxg-list li').remove();
+					for(var i=0;i<warehousearr.length;i++){
+						$('#zxg-list').append(warehousearr[i])
+					}
+					warehousechangesort = 1;
+				}else if (warehousechangesort==1){
+					$('.zxg-list li').remove();
+					for(var i=0;i<warehouseoriginarr.length;i++){
+						$('#zxg-list').append(warehouseoriginarr[i])
+					}
+					// window.Stock.initDom();
+					warehousechangesort = 0;
+				}
+			});
+
+
+
+			//按照涨幅排序
 			$("#grow").click(function (e) {
 				console.log("点击排序");
+				//滚动到头部
+				var $listWrap = $('.zxg-bd');
+				$listWrap.scrollTop(1);
 				if (changesort==0){
-					var arr = [];
+					// var arr = [];
 					$('.zxg-list li').each(function(index,item){
 						// console.log(item);
 						arr[index] = item;
 						originarr[index]=item
 					})
-					console.log(arr);
+					// console.log(arr);
 					//调用 sort
 					arr.sort(function(li1,li2){
 						//要把 li 中的数字取出，进行比较
@@ -100,14 +151,20 @@
 						var n2 = parseFloat(grow2.substr(0, grow2.length - 1));
 						return n1-n2;
 					});
-					console.log(arr);
+					// console.log(arr);
 					//将已经排好序的数组重新添加到 ul
 					$('.zxg-list li').remove();
 					for(var i=0;i<arr.length;i++){
 						$('#zxg-list').prepend(arr[i])
 					}
 					changesort = 1;
-				}else {
+				}else if (changesort==1){
+					$('.zxg-list li').remove();
+					for(var i=0;i<arr.length;i++){
+						$('#zxg-list').append(arr[i])
+					}
+					changesort = 2;
+				}else if (changesort==2){
 					$('.zxg-list li').remove();
 					for(var i=0;i<originarr.length;i++){
 						$('#zxg-list').append(originarr[i])
@@ -115,7 +172,13 @@
 					changesort = 0;
 				}
 			});
-
+			//滚动到目标tab
+			$("#gotab1,#gotab2,#gotab3,#gotab4,#gotab5,#gotab6,#gotab7,#gotab8,#gotab9,#gotab10,#gotab11,#gotab12,#gotab13,#gotab14,#gotab15").click(function (e) {
+				console.log("滚动到目标tab1");
+				// var nav = document.querySelector('#gotab1');
+				console.log($(this).attr("key"));
+				Stock.scrollTo($(this).attr("key"));
+			});
 
 			$("#upper_text_confirm").click(function (e) {
 				var textdata = $("#upper_text").val();

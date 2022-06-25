@@ -322,7 +322,8 @@ function getLinkUrl(obj){
 			var $el = $('#' + key);
 			var offsetTop = $el.offset().top - $('.zxg-list').offset().top;
 			if(offsetTop - 30 > 0){
-				$listWrap.scrollTop(offsetTop - 30);
+				console.log(offsetTop)
+				$listWrap.scrollTop(offsetTop - 30+30);
 			}
 
 		},
@@ -359,7 +360,7 @@ function getLinkUrl(obj){
 		},
 		updateStockData : function(cb){
 			var keys = LocalData.getKeys();
-			var NUM = 30;	// 每30个一组发请求
+			var NUM = 30;	// 每30个一组发请求，分组后异步并行ajax处理的
 
 			if(keys.length == 0){
 				$("#zxg .loading").hide();
@@ -393,6 +394,22 @@ function getLinkUrl(obj){
 						}else {
 							$('#myjava').show();
 						}
+						//对etf进行高亮处理
+						if (obj.name.indexOf("ETF")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.name.indexOf("一心堂")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.name.indexOf("大金重工")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.name.indexOf("长城汽车")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.name.indexOf("上能电气")!=-1){
+							item.addClass('stocketf')
+						}
 						//todo 隐藏处理
 						var mode_choice=window.localStorage.getItem("mode_choice");
 						if (mode_choice==1){
@@ -412,13 +429,7 @@ function getLinkUrl(obj){
 							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(pinyin.getFullChars(obj.name));
 						}
-						//对etf进行高亮处理
-						if (item.find(".name a").html().indexOf("ETF")!=-1){
-							console.log("");
-							console.log(item.find(".name a").html());
-							item.addClass('stocketf')
 
-						}
 
 
 						item.find(".price a").html(obj.price).removeClass('increase','reduce').addClass('increase');
@@ -427,6 +438,9 @@ function getLinkUrl(obj){
 
 						//超买显示,根据key获取缓存upper
 						var tObj=LocalData.getOneByKey(obj.key.substring(2));
+						// console.log("key"+obj.key.substring(2));
+						// console.log("tObj"+tObj);
+
 						//第一个小时超卖, 在10点半之前
 						var curTime = new Date();
 						var base = curTime.getFullYear() + '/' + (curTime.getMonth() + 1) + '/' + curTime.getDate() + ' ';
