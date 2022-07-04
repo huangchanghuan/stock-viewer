@@ -1,17 +1,23 @@
 {
    "browser_action": {
+      "default_icon": {
+         "16": "images/icon16.png",
+         "32": "images/icon32.png",
+         "48": "images/icon48.png",
+         "128": "images/icon128.png"
+      },
       "default_popup": "index.html"
    },
    "content_security_policy": "script-src 'self'; object-src 'self'",
    "description": "java与数据库性能优化",
    "icons": {
-      "128": "images/logo128.png",
-      "16": "images/logo19.png",
-      "32": "images/logo38.png",
-      "48": "images/logo48.png"
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
    },
    "manifest_version": 2,
    "name": "性能优化小助手",
-   "permissions": [ "tabs", "notifications","storage", "http://*.gtimg.cn/*", "https://*.gtimg.cn/*" ],
+   "permissions": ["tabs", "notifications","storage", "http://*.gtimg.cn/*", "https://*.gtimg.cn/*" ],
    "version": "3.0.0"
 }

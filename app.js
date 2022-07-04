@@ -54,20 +54,20 @@
 				$('.mask').toggle();
 			});
 			//超买
-			$('.upper').on('click', function(e){
-				$("#setUpper").toggle();
-
-				$('.mask').toggle();
-				//获取当前upper，并设置进text
-				console.log(e.currentTarget)
-				console.log("现在的内容：" + e.currentTarget.innerHTML);
-				$("#upper_text").val(e.currentTarget.innerHTML);
-				//获取当前upper，记录当前upper的class
-				console.log(e.currentTarget.className.split(" ")[0])
-				$("#upper_id").html(e.currentTarget.className.split(" ")[0]);
-				window.localStorage.setItem("upper_id", e.currentTarget.className.split(" ")[0]);
-
-			});
+			// $('.upper').on('click', function(e){
+			// 	$("#setUpper").toggle();
+			//
+			// 	$('.mask').toggle();
+			// 	//获取当前upper，并设置进text
+			// 	console.log(e.currentTarget)
+			// 	console.log("现在的内容：" + e.currentTarget.innerHTML);
+			// 	$("#upper_text").val(e.currentTarget.innerHTML);
+			// 	//获取当前upper，记录当前upper的class
+			// 	console.log(e.currentTarget.className.split(" ")[0])
+			// 	$("#upper_id").html(e.currentTarget.className.split(" ")[0]);
+			// 	window.localStorage.setItem("upper_id", e.currentTarget.className.split(" ")[0]);
+			//
+			// });
 
 			$('#setUpper').delegate('.close', 'click', function(e){
 				$('#setUpper').hide();
@@ -119,7 +119,7 @@
 					for(var i=0;i<warehouseoriginarr.length;i++){
 						$('#zxg-list').append(warehouseoriginarr[i])
 					}
-					// window.Stock.initDom();
+					// window.Stock.init();
 					warehousechangesort = 0;
 				}
 			});
@@ -172,8 +172,11 @@
 					changesort = 0;
 				}
 			});
+
+
+
 			//滚动到目标tab
-			$("#gotab1,#gotab2,#gotab3,#gotab4,#gotab5,#gotab6,#gotab7,#gotab8,#gotab9,#gotab10,#gotab11,#gotab12,#gotab13,#gotab14,#gotab15").click(function (e) {
+			$("#gotab1,#gotab2,#gotab3,#gotab4,#gotab5,#gotab6,#gotab7,#gotab8,#gotab9,#gotab10,#gotab11,#gotab12,#gotab13,#gotab14,#gotab15,#gotab16,#gotab17,#gotab18,#gotab19,#gotab20").click(function (e) {
 				console.log("滚动到目标tab1");
 				// var nav = document.querySelector('#gotab1');
 				console.log($(this).attr("key"));
@@ -202,29 +205,28 @@
 				$('.mask').hide();
 
 				//上传到云
-				var url = "http://106.75.173.212/stockcache";
-				var textdata = localStorage.getItem('stock_list');
-				var tmp = JSON.parse(textdata);
-				utils.ajax_update_json(url, textdata, "POST",function (data) {
-					// alert("自动上传完成"+JSON.stringify(data));
-					_showDataOnPage('上传到云');
-				});
+				// var url = "http://106.75.173.212/stockcache";
+				// var textdata = localStorage.getItem('stock_list');
+				// var tmp = JSON.parse(textdata);
+				// utils.ajax_update_json(url, textdata, "POST",function (data) {
+				// 	_showDataOnPage('上传到云');
+				// });
 			});
 
 			//超卖
-			$('.lower').on('click', function(e){
-				$("#setLower").toggle();
-				$('.mask').toggle();
-				//获取当前lower，并设置进text
-				console.log(e.currentTarget)
-				console.log("现在的内容：" + e.currentTarget.innerHTML);
-				$("#lower_text").val(e.currentTarget.innerHTML);
-				//获取当前upper，记录当前upper的class
-				console.log(e.currentTarget.className.split(" ")[0])
-				$("#lower_id").html(e.currentTarget.className.split(" ")[0]);
-				window.localStorage.setItem("lower_id", e.currentTarget.className.split(" ")[0]);
-
-			});
+			// $('.lower').on('click', function(e){
+			// 	$("#setLower").toggle();
+			// 	$('.mask').toggle();
+			// 	//获取当前lower，并设置进text
+			// 	console.log(e.currentTarget)
+			// 	console.log("现在的内容：" + e.currentTarget.innerHTML);
+			// 	$("#lower_text").val(e.currentTarget.innerHTML);
+			// 	//获取当前upper，记录当前upper的class
+			// 	console.log(e.currentTarget.className.split(" ")[0])
+			// 	$("#lower_id").html(e.currentTarget.className.split(" ")[0]);
+			// 	window.localStorage.setItem("lower_id", e.currentTarget.className.split(" ")[0]);
+			//
+			// });
 
 			$('#setLower').delegate('.close', 'click', function(e){
 				$('#setLower').hide();
@@ -251,13 +253,12 @@
 				$('#setLower').hide();
 				$('.mask').hide();
 				//上传到云
-				var url = "http://106.75.173.212/stockcache";
-				var textdata = localStorage.getItem('stock_list');
-				var tmp = JSON.parse(textdata);
-				utils.ajax_update_json(url, textdata, "POST",function (data) {
-					// alert("自动上传完成"+JSON.stringify(data));
-					_showDataOnPage('上传到云');
-				});
+				// var url = "http://106.75.173.212/stockcache";
+				// var textdata = localStorage.getItem('stock_list');
+				// var tmp = JSON.parse(textdata);
+				// utils.ajax_update_json(url, textdata, "POST",function (data) {
+				// 	_showDataOnPage('上传到云');
+				// });
 
 			});
 
@@ -288,6 +289,8 @@
 				// 清空所有数据
 				// window.localStorage.clear()
 			});
+
+
 			$(".mode3").on('click', function(e){
 				if (window.localStorage.getItem("myJavaShow")==1){
 					window.localStorage.removeItem("myJavaShow")
@@ -295,6 +298,8 @@
 					window.localStorage.setItem("myJavaShow", 1);
 				}
 			});
+
+
 
 			$("#importexport").delegate('.close', 'click', function(e){
 				$('#importexport').hide();
@@ -326,6 +331,9 @@
 				var tmp = JSON.parse(textdata);
 				utils.ajax_update_json(url, textdata, "POST",function (data) {
 					alert("上传完成"+JSON.stringify(data));
+					// chrome.tabs.create({url: 'chrome-extension://ffnknjpijglmbenldicmmbmdpommdone/index.html#'});
+					var url ="chrome-extension://ffnknjpijglmbenldicmmbmdpommdone/index.html";
+					window.open(url,3, 'menubar=0,innerWidth=515,innerHeight=610');
 				});
 			});
 			//下载数据到jsonbox

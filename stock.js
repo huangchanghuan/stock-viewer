@@ -149,7 +149,11 @@ function _showDataOnPage(data){
 			var res = [];
 			data.order.forEach(function(item,index){
 				var obj = data.map[item];
+				//过滤持仓
+				// console.log(obj)
 				res.push(obj);
+
+
 			});
 			if(cb){
 				cb(res);
@@ -321,8 +325,8 @@ function getLinkUrl(obj){
 			var $listWrap = $('.zxg-bd');
 			var $el = $('#' + key);
 			var offsetTop = $el.offset().top - $('.zxg-list').offset().top;
-			if(offsetTop - 30 > 0){
-				console.log(offsetTop)
+			console.log(offsetTop)
+			if(offsetTop> 0){
 				$listWrap.scrollTop(offsetTop - 30+30);
 			}
 
@@ -410,6 +414,24 @@ function getLinkUrl(obj){
 						if (obj.name.indexOf("上能电气")!=-1){
 							item.addClass('stocketf')
 						}
+						if (obj.key.indexOf("sz300568")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.key.indexOf("sh600884")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.key.indexOf("sz300073")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.key.indexOf("sz300890")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.key.indexOf("sz002709")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.key.indexOf("sh000001")!=-1){
+							item.addClass('stocketf')
+						}
 						//todo 隐藏处理
 						var mode_choice=window.localStorage.getItem("mode_choice");
 						if (mode_choice==1){
@@ -453,6 +475,192 @@ function getLinkUrl(obj){
 					cb && cb();
 				});
 			}
+		},
+
+		getfirefoxJson:function(){
+			console.log("获取firefox json");
+			var totelGroup = [];
+			var morenGroup = [];
+			var stockGroup = [];
+			// var jsonobject = {};
+			// jsonobject.name = "美的集团";
+			// jsonobject.code = "000333";
+			// jsonobject.market = 0;
+			// stockGroup.push(jsonobject);
+			// console.log(stockGroup);
+			//当前分组
+
+			var groudnew = {};
+
+			var tagnow=null;
+			//获取
+
+			var keys = LocalData.getKeys();
+			var NUM = 200;	// 每30个一组发请求，分组后异步并行ajax处理的
+
+			if(keys.length == 0){
+				// $("#zxg .loading").hide();
+				return;
+			}
+			var groupname = '上证';
+			for(var i = 0,len = Math.ceil(keys.length/NUM); i < len; i++){
+				var arr = keys.slice(i*NUM, (i+1)*NUM);
+
+				this._loadStockData(arr.join(","),function(res) {
+					for (i in res) {
+						// console.log(i + "=" + res[i]);
+						var obj = res[i];
+
+						if (obj.key.indexOf("sh000001")!=-1){
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.name.indexOf("ETF")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							// console.log(JSON.stringify(totelGroup));
+
+							stockGroup = [];
+							groupname = obj.name;
+							// console.log(JSON.stringify(totelGroup));
+
+
+						}
+						if (obj.name.indexOf("一心堂")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.name.indexOf("大金重工")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.name.indexOf("长城汽车")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.name.indexOf("上能电气")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.key.indexOf("sz300568")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.key.indexOf("sh600884")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.key.indexOf("sz300073")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.key.indexOf("sz300890")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+						if (obj.key.indexOf("sz002709")!=-1){
+							//console.log(JSON.stringify(stockGroup));
+							//创建对象
+							var jsonobject1 = {};
+							jsonobject1.name =groupname;
+							jsonobject1.data =stockGroup;
+							totelGroup.push(jsonobject1)
+							stockGroup = [];
+							groupname = obj.name;
+						}
+
+						//创建对象,添加进入数组
+						var jsonobject = {};
+						jsonobject.name = obj.name;
+						jsonobject.code = obj.key.substring(4,10);
+						if (obj.key.startsWith("v_sh")){
+							jsonobject.market = 1;
+						}else {
+							jsonobject.market = 0;
+							jsonobject.StockType = "深A";
+						}
+						stockGroup.push(jsonobject);
+						morenGroup.push(jsonobject);
+
+					}
+//最后
+					//console.log(JSON.stringify(stockGroup));
+					//创建对象
+					var jsonobject1 = {};
+					jsonobject1.name =groupname;
+					jsonobject1.data =stockGroup;
+					totelGroup.push(jsonobject1)
+					console.log(JSON.stringify(totelGroup));
+					console.log(JSON.stringify(morenGroup));
+					//整体
+					var str = "{\"version\":\"3.2.5\",\"stockGroup\":[{\"name\":\"默认分组\",\"data\":[]}],\"fundGroup\":[{\"name\":\"默认分组\",\"data\":[]}],\"indexItemList\":[{\"code\":\"000001\",\"name\":\"上证指数\",\"market\":\"1\"},{\"code\":\"000300\",\"name\":\"沪深300\",\"market\":\"1\"},{\"code\":\"399001\",\"name\":\"深证指数\",\"market\":\"0\"},{\"code\":\"399006\",\"name\":\"创业板指数\",\"market\":\"0\"},{\"code\":\"000933\",\"name\":\"中证医药\",\"market\":\"1\"},{\"code\":\"399986\",\"name\":\"中证银行\",\"market\":\"0\"},{\"code\":\"399997\",\"name\":\"中证白酒\",\"market\":\"0\"},{\"code\":\"000820\",\"name\":\"煤炭指数\",\"market\":\"1\"},{\"code\":\"399975\",\"name\":\"证券公司\",\"market\":\"0\"}],\"stockCurGroupIndex\":1,\"config\":{\"isDark\":false,\"fontSize\":\"mini\",\"badgeModel\":\"0\",\"is_show_fund\":false,\"popup_opacity\":100,\"fundColumnShow\":{\"jj_gz\":true,\"jj_ccj\":false,\"jj_ccs\":false,\"jj_zdf\":true,\"jj_zsy\":false,\"jj_ccje\":false,\"jj_dtsy\":false,\"jj_zsyl\":false},\"isShowHeadIndex\":false,\"popup_grayscale\":47,\"stockColumnShow\":{\"gp_sj\":true,\"gp_ccj\":false,\"gp_ccs\":false,\"gp_hsl\":true,\"gp_zdf\":true,\"gp_zsy\":false,\"gp_ccje\":false,\"gp_dtsy\":false,\"gp_zsyl\":false,\"gp_zdfje\":true},\"replenishmentNotice\":true},\"data_center_last_updata\":\"2021-06-28\",\"stockItemList\":[],\"fundListM\":[],\"notify\":[]}";
+					var firefoxresult = JSON.parse(str);
+					firefoxresult.stockGroup = totelGroup;
+					firefoxresult.stockItemList = morenGroup;
+					console.log(JSON.stringify(firefoxresult));
+				});
+
+				
+			}
+
+
+
+
+
+
 		},
 		initDom : function(){
 			var sHtml = this._renderStockStruct();
@@ -619,8 +827,36 @@ function getLinkUrl(obj){
 			}).delegate('li', 'animationend', function(e){
 				$(this).removeClass('fade');
 			}).delegate(".down","click",function(e){
+				console.log($(this).parents("li"))
+				console.log(e.delegateTarget)
 				$(this).parents("li").appendTo(e.delegateTarget);
 				self.sortStock();
+			}).delegate(".upper","click",function(e){
+				//超买
+				$("#setUpper").toggle();
+
+				$('.mask').toggle();
+				//获取当前upper，并设置进text
+				console.log(e.currentTarget)
+				console.log("现在的内容：" + e.currentTarget.innerHTML);
+				$("#upper_text").val(e.currentTarget.innerHTML);
+				//获取当前upper，记录当前upper的class
+				console.log(e.currentTarget.className.split(" ")[0])
+				$("#upper_id").html(e.currentTarget.className.split(" ")[0]);
+				window.localStorage.setItem("upper_id", e.currentTarget.className.split(" ")[0]);
+
+
+			}).delegate(".lower","click",function(e){
+					$("#setLower").toggle();
+					$('.mask').toggle();
+					//获取当前lower，并设置进text
+					console.log(e.currentTarget)
+					console.log("现在的内容：" + e.currentTarget.innerHTML);
+					$("#lower_text").val(e.currentTarget.innerHTML);
+					//获取当前upper，记录当前upper的class
+					console.log(e.currentTarget.className.split(" ")[0])
+					$("#lower_id").html(e.currentTarget.className.split(" ")[0]);
+					window.localStorage.setItem("lower_id", e.currentTarget.className.split(" ")[0]);
 			});
 
 			/* 拖拽排序 */

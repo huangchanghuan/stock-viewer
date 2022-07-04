@@ -1,0 +1,718 @@
+{
+  "value": [
+    {
+      "key": "sh000001",
+      "name": "上证指数",
+      "pinyin": "szzs",
+      "type": "ZS",
+      "upper": "--"
+    },
+    {
+      "key": "sz399006",
+      "name": "ChuangYeBanZhi",
+      "pinyin": "cybz",
+      "type": "ZS",
+      "upper": "--",
+      "lower": "--"
+    },
+    {
+      "key": "sh601778",
+      "name": "晶科科技",
+      "pinyin": "jkkj",
+      "type": "GP-A",
+      "upper": "5.75"
+    },
+    {
+      "key": "sh516160",
+      "name": "XinNenYuanETF",
+      "pinyin": "xnyetf",
+      "type": "ETF"
+    },
+    {
+      "key": "sz002192",
+      "name": "RongJieGuFen",
+      "pinyin": "rjgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002240",
+      "name": "ShengXinLiNen",
+      "pinyin": "sxln",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sz002466",
+      "name": "TianQiLiYe",
+      "pinyin": "tqly",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300568",
+      "name": "XingYuanCaiZhi",
+      "pinyin": "xycz",
+      "type": "GP-A",
+      "upper": "--",
+      "lower": "--"
+    },
+    {
+      "key": "sz002812",
+      "name": "恩捷股份",
+      "pinyin": "ejgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002108",
+      "name": "沧州明珠",
+      "pinyin": "czmz",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300586",
+      "name": "美联新材",
+      "pinyin": "mlxc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300073",
+      "name": "当升科技",
+      "pinyin": "dskj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300409",
+      "name": "道氏技术",
+      "pinyin": "dsjs",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603876",
+      "name": "鼎胜新材",
+      "pinyin": "dsxc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002074",
+      "name": "国轩高科",
+      "pinyin": "gxgk",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300340",
+      "name": "科恒股份",
+      "pinyin": "khgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300890",
+      "name": "翔丰华",
+      "pinyin": "xfh",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603659",
+      "name": "PuTaiLai",
+      "pinyin": "ptl",
+      "type": "GP-A",
+      "upper": "--",
+      "lower": "--"
+    },
+    {
+      "key": "sz300035",
+      "name": "中科电气",
+      "pinyin": "zkdq",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300655",
+      "name": "晶瑞电材",
+      "pinyin": "jrdc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300014",
+      "name": "YiWeiLiNen",
+      "pinyin": "ywln",
+      "type": "GP-A",
+      "lower": "--",
+      "upper": "--"
+    },
+    {
+      "key": "sz002709",
+      "name": "天赐材料",
+      "pinyin": "tccl",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002759",
+      "name": "天际股份",
+      "pinyin": "tjgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002407",
+      "name": "多氟多",
+      "pinyin": "dfd",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh600884",
+      "name": "杉杉股份",
+      "pinyin": "ssgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300082",
+      "name": "奥克股份",
+      "pinyin": "akgf",
+      "type": "GP-A",
+      "upper": "12.37",
+      "lower": "--"
+    },
+    {
+      "key": "sh603026",
+      "name": "石大胜华",
+      "pinyin": "sdsh",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300037",
+      "name": "新宙邦",
+      "pinyin": "xzb",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh601633",
+      "name": "ChangChengQiChe",
+      "pinyin": "ccqc",
+      "type": "GP-A",
+      "upper": "--",
+      "lower": "--"
+    },
+    {
+      "key": "sz002454",
+      "name": "松芝股份",
+      "pinyin": "szgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz000625",
+      "name": "ChangAnQiChe",
+      "pinyin": "caqc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh601127",
+      "name": "小康股份",
+      "pinyin": "xkgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh600418",
+      "name": "江淮汽车",
+      "pinyin": "jhqc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002594",
+      "name": "BiYaDi",
+      "pinyin": "byd",
+      "type": "GP-A",
+      "upper": "--"
+    },
+    {
+      "key": "sz000957",
+      "name": "中通客车",
+      "pinyin": "ztkc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002487",
+      "name": "DaJinZhongGong",
+      "pinyin": "djzg",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300772",
+      "name": "YunDaGuFen",
+      "pinyin": "ydgf",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sz300850",
+      "name": "XinQiangLian",
+      "pinyin": "xql",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sh515790",
+      "name": "GuangFuETF",
+      "pinyin": "gfetf",
+      "type": "ETF"
+    },
+    {
+      "key": "sh603185",
+      "name": "ShangJiShuKong",
+      "pinyin": "sjsk",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sz003022",
+      "name": "LianHongXinKe",
+      "pinyin": "lhxk",
+      "type": "GP-A",
+      "upper": "--"
+    },
+    {
+      "key": "sz000301",
+      "name": "DongFangShengHong",
+      "pinyin": "dfsh",
+      "type": "GP-A",
+      "upper": "--",
+      "lower": "--"
+    },
+    {
+      "key": "sz300724",
+      "name": "捷佳伟创",
+      "pinyin": "jjwc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300751",
+      "name": "MaiWeiGuFen",
+      "pinyin": "mwgf",
+      "type": "GP-A",
+      "lower": "--",
+      "upper": "--"
+    },
+    {
+      "key": "sh603396",
+      "name": "金辰股份",
+      "pinyin": "jcgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300093",
+      "name": "金刚玻璃",
+      "pinyin": "jgbl",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002610",
+      "name": "爱康科技",
+      "pinyin": "akkj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz000821",
+      "name": "京山轻机",
+      "pinyin": "jsqj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300118",
+      "name": "DongFangRiSheng",
+      "pinyin": "dfrs",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sz300842",
+      "name": "帝科股份",
+      "pinyin": "dkgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002079",
+      "name": "苏州固锝",
+      "pinyin": "szgd",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300776",
+      "name": "帝尔激光",
+      "pinyin": "dejg",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300393",
+      "name": "ZhongLaiGuFen",
+      "pinyin": "zlgf",
+      "type": "GP-A",
+      "lower": "--",
+      "upper": "--"
+    },
+    {
+      "key": "sz300274",
+      "name": "阳光电源",
+      "pinyin": "ygdy",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300763",
+      "name": "JinLangKeJi",
+      "pinyin": "jlkj",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sh601012",
+      "name": "LongJiGuFen",
+      "pinyin": "ljgf",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sh600438",
+      "name": "TongWeiGuFen",
+      "pinyin": "twgf",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sh600089",
+      "name": "TeBianDianGong",
+      "pinyin": "tbdg",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh605117",
+      "name": "德业股份",
+      "pinyin": "dygf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300827",
+      "name": "上能电气",
+      "pinyin": "sndq",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300693",
+      "name": "盛弘股份",
+      "pinyin": "shgf",
+      "type": "GP-A",
+      "upper": "--",
+      "lower": "--"
+    },
+    {
+      "key": "sz002837",
+      "name": "英维克",
+      "pinyin": "ywk",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh601126",
+      "name": "四方股份",
+      "pinyin": "sfgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002455",
+      "name": "百川股份",
+      "pinyin": "bcgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300712",
+      "name": "永福股份",
+      "pinyin": "yfgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002518",
+      "name": "科士达",
+      "pinyin": "ksd",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300153",
+      "name": "科泰电源",
+      "pinyin": "ktdy",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300648",
+      "name": "XingYunGuFen",
+      "pinyin": "xygf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300769",
+      "name": "德方纳米",
+      "pinyin": "dfnm",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh512690",
+      "name": "JiuETF",
+      "pinyin": "jetf",
+      "type": "ETF"
+    },
+    {
+      "key": "sh600702",
+      "name": "SheDeJiuYe",
+      "pinyin": "sdjy",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sz000799",
+      "name": "JiuGuiJiu",
+      "pinyin": "jgj",
+      "type": "GP-A",
+      "upper": "--"
+    },
+    {
+      "key": "sh600779",
+      "name": "ShuiJingFang",
+      "pinyin": "sjf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz000858",
+      "name": "WuLiangYe",
+      "pinyin": "wly",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603369",
+      "name": "JinShiYuan",
+      "pinyin": "jsy",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz000596",
+      "name": "GuJingGongJiu",
+      "pinyin": "gjgj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh600559",
+      "name": "LaoBaiGanJiu",
+      "pinyin": "lbgj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh513330",
+      "name": "HengShengHuLianWangETF",
+      "pinyin": "hshlwetf",
+      "type": "QDII-ETF"
+    },
+    {
+      "key": "sz159996",
+      "name": "JiaDianETF",
+      "pinyin": "jdetf",
+      "type": "ETF"
+    },
+    {
+      "key": "sz002508",
+      "name": "老板电器",
+      "pinyin": "lbdq",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz000333",
+      "name": "MeiDeJiTuan",
+      "pinyin": "mdjt",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603486",
+      "name": "KeWoSi",
+      "pinyin": "kws",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sh512480",
+      "name": "BanDaoTiETF",
+      "pinyin": "bdtetf",
+      "type": "ETF"
+    },
+    {
+      "key": "sz300046",
+      "name": "台基股份",
+      "pinyin": "tjgf",
+      "type": "GP-A",
+      "upper": "20",
+      "lower": "19.32"
+    },
+    {
+      "key": "sz300323",
+      "name": "华灿光电",
+      "pinyin": "hcgd",
+      "type": "GP-A",
+      "upper": "--"
+    },
+    {
+      "key": "sh603690",
+      "name": "至纯科技",
+      "pinyin": "zckj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002371",
+      "name": "北方华创",
+      "pinyin": "bfhc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603650",
+      "name": "彤程新材",
+      "pinyin": "tcxc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh600703",
+      "name": "三安光电",
+      "pinyin": "sagd",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603501",
+      "name": "韦尔股份",
+      "pinyin": "wegf",
+      "type": "GP-A",
+      "lower": "--"
+    },
+    {
+      "key": "sh603986",
+      "name": "兆易创新",
+      "pinyin": "zycx",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002727",
+      "name": "一心堂",
+      "pinyin": "yxt",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300347",
+      "name": "泰格医药",
+      "pinyin": "tgyy",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300725",
+      "name": "药石科技",
+      "pinyin": "yskj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603127",
+      "name": "昭衍新药",
+      "pinyin": "zyxy",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002821",
+      "name": "凯莱英",
+      "pinyin": "kly",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300759",
+      "name": "康龙化成",
+      "pinyin": "klhc",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603883",
+      "name": "老百姓",
+      "pinyin": "lbx",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603233",
+      "name": "大参林",
+      "pinyin": "dcl",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh603939",
+      "name": "益丰药房",
+      "pinyin": "yfyf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh512880",
+      "name": "证券ETF",
+      "pinyin": "zqetf",
+      "type": "ETF"
+    },
+    {
+      "key": "sz300059",
+      "name": "东方财富",
+      "pinyin": "dfcf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh601788",
+      "name": "光大证券",
+      "pinyin": "gdzq",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh512660",
+      "name": "军工ETF",
+      "pinyin": "jgetf",
+      "type": "ETF"
+    },
+    {
+      "key": "sh600399",
+      "name": "抚顺特钢",
+      "pinyin": "fstg",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300034",
+      "name": "钢研高纳",
+      "pinyin": "gygn",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz000733",
+      "name": "振华科技",
+      "pinyin": "zhkj",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300855",
+      "name": "图南股份",
+      "pinyin": "tngf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sh600893",
+      "name": "航发动力",
+      "pinyin": "hfdl",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002651",
+      "name": "利君股份",
+      "pinyin": "ljgf",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz002149",
+      "name": "西部材料",
+      "pinyin": "xbcl",
+      "type": "GP-A"
+    },
+    {
+      "key": "sz300708",
+      "name": "聚灿光电",
+      "pinyin": "jcgd",
+      "type": "GP-A",
+      "lower": "--",
+      "upper": "13.50"
+    }
+  ],
+  "lastUpdate": 1656868416569
+}
