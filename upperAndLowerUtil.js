@@ -21,7 +21,7 @@
                     if (item.find(".delete").html()!=="bv"){
                         item.find(".delete").html("bv");
                         console.log("触发买入报警");
-                        _showDataOnPage('入场 :'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
+                        _showDataOnPage('入 :'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
                     }
                 }else {
                     //不需要止损，去掉止损标识
@@ -84,7 +84,7 @@
                         if (item.find(".delete").html()!=="lv"){
                             item.find(".delete").html("lv");
                             console.log("触发离场报警");
-                            _showDataOnPage('离场:'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
+                            _showDataOnPage('离:'+obj.name.substring(0,1)+"&#5%#0"+obj.name.substring(1,2));
                         }
                     }else {
                         //不需要止损，去掉止损标识

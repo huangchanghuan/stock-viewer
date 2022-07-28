@@ -432,6 +432,16 @@ function getLinkUrl(obj){
 						if (obj.key.indexOf("sh000001")!=-1){
 							item.addClass('stocketf')
 						}
+
+						if (obj.key.indexOf("sz000821")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.key.indexOf("sh601778")!=-1){
+							item.addClass('stocketf')
+						}
+						if (obj.key.indexOf("sz300343")!=-1){
+							item.addClass('stocketf')
+						}
 						//todo 隐藏处理
 						var mode_choice=window.localStorage.getItem("mode_choice");
 						if (mode_choice==1){
@@ -899,7 +909,7 @@ function getLinkUrl(obj){
 		var SecondstartAM = base + '10:30:00'; // 第二个小时开始
 		if(+curTime < +new Date(startAM) || ( +new Date(endAM) < +curTime && +curTime < +new Date(startPM) ) || +curTime > +new Date(endPM) ){
 			//todo 检查开启时间
-			// clearInterval(timer);
+			clearInterval(timer);
 		}
 	})();
 
