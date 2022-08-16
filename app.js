@@ -176,7 +176,7 @@
 
 
 			//滚动到目标tab
-			$("#gotab1,#gotab2,#gotab3,#gotab4,#gotab5,#gotab6,#gotab7,#gotab8,#gotab9,#gotab10,#gotab11,#gotab12,#gotab13,#gotab14,#gotab15,#gotab16,#gotab17,#gotab18,#gotab19,#gotab20,#gotab21,#gotab22,#gotab23,#gotab24").click(function (e) {
+			$("#gotab1,#gotab2,#gotab3,#gotab4,#gotab5,#gotab6,#gotab7,#gotab8,#gotab9,#gotab10,#gotab11,#gotab12,#gotab13,#gotab14,#gotab15,#gotab16,#gotab17,#gotab18,#gotab19,#gotab20,#gotab21,#gotab22,#gotab23,#gotab24,#gotab25,#gotab26,#gotab27,#gotab28").click(function (e) {
 				console.log("滚动到目标tab1");
 				// var nav = document.querySelector('#gotab1');
 				console.log($(this).attr("key"));

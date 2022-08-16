@@ -432,16 +432,23 @@ function getLinkUrl(obj){
 						if (obj.key.indexOf("sh000001")!=-1){
 							item.addClass('stocketf')
 						}
+						//数组处理颜色分类
+						var classArray = new Array();
+						classArray.push("sz300655");
+						classArray.push("sz002371");
+						classArray.push("sz000400");
 
-						if (obj.key.indexOf("sz000821")!=-1){
+						classArray.push("sz300343");
+						classArray.push("sh601778");
+						classArray.push("sz000821");
+
+						if (classArray.includes(obj.key.substr(2))){
 							item.addClass('stocketf')
+							// console.log(obj.key.substr(2))
 						}
-						if (obj.key.indexOf("sh601778")!=-1){
-							item.addClass('stocketf')
-						}
-						if (obj.key.indexOf("sz300343")!=-1){
-							item.addClass('stocketf')
-						}
+
+
+
 						//todo 隐藏处理
 						var mode_choice=window.localStorage.getItem("mode_choice");
 						if (mode_choice==1){

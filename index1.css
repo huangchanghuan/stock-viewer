@@ -84,6 +84,7 @@ body{
     position:relative;
     height:356px;
     overflow-y:scroll;
+    font-size:14px;
 }
 .zxg-stock .increase{
     color: rgba(38, 42, 42, 0.38);
@@ -134,15 +135,16 @@ body{
     top:26px;
     left:0px;
     z-index:2;
-    background:white;
+    background: #aca9a9;
     border:solid 2px #e8e8e8;
     /*<!-- 图片黑白处理 -->*/
     -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
+    /*-moz-filter: grayscale(100%);*/
+    /*-ms-filter: grayscale(100%);*/
+    /*-o-filter: grayscale(100%);*/
     filter: grayscale(100%);
-    filter: gray;
+    opacity:0.9
+    /*filter: gray;*/
 }
 .zxg-stock span{
     text-align:center;
@@ -163,7 +165,14 @@ body{
 .zxg-stock .remark{
     width:45px;height:100%;cursor:pointer;
 }
-.zxg-stock .code{width:30px;height:28px;overflow:hidden;}
+
+.zxg-stock .code {
+    font-size: 14px;
+    width: 34px;
+    height: 28px;
+    overflow: hidden;
+}
+
 .zxg-stock .name{width:70px;height:28px;overflow:hidden;}
 .zxg-stock .price{width:70px;}
 .zxg-stock .grow{width:70px;}
