@@ -268,7 +268,7 @@ function getLinkUrl(obj){
 						name : arr[1],
 						code : arr[2],
 						price : arr[3],
-						growRate : arr[32] + '%',
+						growRate : arr[32] + '',
 						hands : (arr[38] ? arr[38] : '0.00') + '%',
 						className : ''
 					}
@@ -437,16 +437,16 @@ function getLinkUrl(obj){
 						classArray.push("sz300655");
 						classArray.push("sz002371");
 						classArray.push("sz000400");
-
 						classArray.push("sz300343");
 						classArray.push("sh601778");
 						classArray.push("sz000821");
+						classArray.push("sz002101");
+						classArray.push("sz000948");
 
 						if (classArray.includes(obj.key.substr(2))){
 							item.addClass('stocketf')
 							// console.log(obj.key.substr(2))
 						}
-
 
 
 						//todo 隐藏处理
@@ -468,7 +468,6 @@ function getLinkUrl(obj){
 							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(pinyin.getFullChars(obj.name));
 						}
-
 
 
 						item.find(".price a").html(obj.price).removeClass('increase','reduce').addClass('increase');
@@ -916,7 +915,7 @@ function getLinkUrl(obj){
 		var SecondstartAM = base + '10:30:00'; // 第二个小时开始
 		if(+curTime < +new Date(startAM) || ( +new Date(endAM) < +curTime && +curTime < +new Date(startPM) ) || +curTime > +new Date(endPM) ){
 			//todo 检查开启时间
-			clearInterval(timer);
+			// clearInterval(timer);
 		}
 	})();
 

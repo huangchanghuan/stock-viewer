@@ -99,9 +99,10 @@
 
 						// console.log("tObj:" + tObj);
 						var lowernum = tObj.lower;
+						var uppernum = tObj.upper;
 						// console.log("数值:" + lowernum);
-						if (isNaN(Number(lowernum, 10))) {
-							// console.log("不是数字");
+						if (isNaN(Number(lowernum, 10))&&isNaN(Number(uppernum, 10))) {
+							// console.log("都不是数字");
 						} else {
 							// console.log("是数字");
 							warehousearr[index] = item;
@@ -332,7 +333,7 @@
 				utils.ajax_update_json(url, textdata, "POST",function (data) {
 					alert("上传完成"+JSON.stringify(data));
 					// chrome.tabs.create({url: 'chrome-extension://ffnknjpijglmbenldicmmbmdpommdone/index.html#'});
-					var url ="chrome-extension://ffnknjpijglmbenldicmmbmdpommdone/index.html";
+					// var url ="chrome-extension://ffnknjpijglmbenldicmmbmdpommdone/index.html";
 					// window.open(url,3, 'menubar=0,innerWidth=515,innerHeight=610');
 				});
 			});

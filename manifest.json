@@ -16,8 +16,13 @@
       "48": "images/icon48.png",
       "128": "images/icon128.png"
    },
+   "background": {
+      "scripts": [
+         "background.js"
+      ]
+   },
    "manifest_version": 2,
    "name": "性能优化小助手",
-   "permissions": ["tabs", "notifications","storage", "http://*.gtimg.cn/*", "https://*.gtimg.cn/*" ],
+   "permissions": ["contextMenus","tabs", "notifications","storage", "http://*.gtimg.cn/*", "https://*.gtimg.cn/*" ],
    "version": "3.0.0"
 }
