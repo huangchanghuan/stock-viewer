@@ -441,7 +441,7 @@ function getLinkUrl(obj){
 						classArray.push("sh601778");
 						classArray.push("sz000821");
 						classArray.push("sz002101");
-						classArray.push("sz000948");
+						classArray.push("sh600536");
 
 						if (classArray.includes(obj.key.substr(2))){
 							item.addClass('stocketf')
@@ -468,7 +468,10 @@ function getLinkUrl(obj){
 							item.find(".code a").html(obj.key.substring(4,7) );
 							item.find(".name a").html(pinyin.getFullChars(obj.name));
 						}
-
+						var sUserAgent = navigator.userAgent;
+						console.log(sUserAgent.indexOf("Windows NT 6.1"));
+						console.log(sUserAgent.indexOf("Windows 7"));
+						console.log(sUserAgent);
 
 						item.find(".price a").html(obj.price).removeClass('increase','reduce').addClass('increase');
 						item.find(".grow a").html(obj.growRate).removeClass('increase','reduce').addClass('increase');

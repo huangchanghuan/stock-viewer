@@ -1,3 +1,26 @@
+//window 7
+chrome.contextMenus.create({
+    title: "win7窗口打开", contexts: ["browser_action"], onclick: function () {
+        //如果win7
+        var sUserAgent = navigator.userAgent;
+        chrome.windows.create({
+            url: chrome.runtime.getURL("index.html"),
+            width: 520,
+            height: 600,
+            top: 200,
+            left: 200,
+            type: "popup"
+        }, (function (t) {
+            chrome.windows.update(t.id, {focused: !0})
+        }))
+
+
+    }
+
+});
+
+
+
 chrome.contextMenus.create({
     title: "以独立窗口模式打开", contexts: ["browser_action"], onclick: function () {
         //如果win7
@@ -69,5 +92,3 @@ chrome.contextMenus.create({
     }
 
 });
-
-
