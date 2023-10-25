@@ -1,4 +1,4 @@
-var mode1=true;
+﻿var mode1=true;
 var mode2=true;
 
 //将data数据以桌面通知的方式显示给用户
@@ -441,7 +441,8 @@ function getLinkUrl(obj){
 						classArray.push("sh601778");
 						classArray.push("sz000821");
 						classArray.push("sz002101");
-						classArray.push("sh600536");
+						classArray.push("sz300308");
+						classArray.push("sz300347");
 
 						if (classArray.includes(obj.key.substr(2))){
 							item.addClass('stocketf')
