@@ -398,6 +398,9 @@ function getLinkUrl(obj){
 						}else {
 							$('#myjava').show();
 						}
+						/**
+						 *
+
 						//对etf进行高亮处理
 						if (obj.name.indexOf("ETF")!=-1){
 							item.addClass('stocketf')
@@ -448,6 +451,7 @@ function getLinkUrl(obj){
 							item.addClass('stocketf')
 							// console.log(obj.key.substr(2))
 						}
+						 */
 
 
 						//todo 隐藏处理
